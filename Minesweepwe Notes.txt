@@ -1,0 +1,19 @@
+Steps on How to Create Minesweeper:
+1 .Make the board (10x10) grid - DONE
+
+2. Make the printBoard method
+	- At the end of the method, it should print a 10x10 grid of just zeros - DONE 
+
+3.) Make the "addBombs" method
+		- As a numerical value, bombs are represented as -1. But when you print
+		it out on the board, it should output as an "X".
+		- Make sure to add a "checking" method to check that there's the correct
+		number of bombs being created.
+	  
+4.) Create the "addNums" method *most difficult method* - 
+		- Do your best..
+	
+5.) Make it look pretty, like a game
+		- Put spaces in between the numbers of the board. - 
+
+
