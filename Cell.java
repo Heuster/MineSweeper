@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 public class Cell implements ActionListener{
     //Variables you need to work with
     private int value;
-    
+   
     //Variables you don't need to worry about or care about.
     private JButton button;
     /**
@@ -31,10 +31,10 @@ public class Cell implements ActionListener{
      * @return True if it is a bomb, otherwise false.
      */
     boolean isBomb(){
-        if (value == -1) {
-            return true;
-        } else {
+        if (value == 0) {
             return false;
+        } else {
+            return true;
         }
     
     }
@@ -47,6 +47,9 @@ public class Cell implements ActionListener{
         return value;
     }
     
+    public void setValue(int num){
+        value = num;
+    }
     //The following methods are used for the User Inferface. These methods are fully functional and do not need to be modified.
     public void checkCell(){
         button.setEnabled(false);
