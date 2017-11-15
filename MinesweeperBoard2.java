@@ -49,12 +49,12 @@ public class MinesweeperBoard2{
             int index = 0;
             int num = 0;
             if (board[i].getValue() != -1){
-                //TOP RIGHT?
+                //TOP RIGHT
                 index = i-(rows + 1);
                 if (index >= 0 && board[index].getValue() == -1 && index%rows !=9){
                     num+=1;
                 }
-                //TOP?
+                //TOP
                 index = i-rows;
                 if (index >= 0 && board[index].getValue() == -1){
                     num += 1;
@@ -85,6 +85,7 @@ public class MinesweeperBoard2{
      */
     public void printBoard(){
         int index = 0;
+        System.out.println("    Minesweeper");
         for (int r = 0; r < rows; r++){
             for (int c = 0; c < columns; c++){
                 if (board[index].getValue() == -1){
@@ -96,6 +97,7 @@ public class MinesweeperBoard2{
            }
            System.out.println();
         }
+        System.out.println();
     }
     
     public JPanel addCells(){
