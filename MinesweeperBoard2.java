@@ -59,7 +59,23 @@ public class MinesweeperBoard2{
                 if (index >= 0 && board[index].getValue() == -1){
                     num += 1;
                 }
-
+                //TOP LEFT
+                index = i-(rows-1);
+                if (index >= 0&& board[index].getValue() == -1 && index%rows != 0){
+                    num += 1;
+                }
+                //LEFT
+                index = i-1;
+                if (index >= 0&& board[index].getValue() == -1 && index%rows != 9){
+                    num += 1;
+                }
+                //RIGHT
+                index = i+1;
+                if(index >= 0 && board[index].getValue() == -1 && index%rows != 0){
+                    num += 1;
+                }
+                
+                board[i].setValue(num);
             }
         }
     }
