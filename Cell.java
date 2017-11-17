@@ -19,7 +19,7 @@ public class Cell implements ActionListener{
     /**
      * This constructor is complete and does not need modification
      */
-    public Cell(){
+    protected Cell(){
         button = new JButton();
         button.addActionListener(this);
         button.setPreferredSize(new Dimension(20,20));
@@ -30,11 +30,11 @@ public class Cell implements ActionListener{
      * 
      * @return True if it is a bomb, otherwise false.
      */
-    boolean isBomb(){
-        if (value == 0) {
-            return false;
-        } else {
+    protected boolean isBomb(){
+        if (value == -1) {
             return true;
+        } else {
+            return false;
         }
     
     }
@@ -43,7 +43,7 @@ public class Cell implements ActionListener{
     //Additional Methods may be required. Please make them yourself.
     //Accessor Methods
     
-    public int getValue(){ //Value cannot be public
+    protected int getValue(){ //Value cannot be public
         return value;
     }
     

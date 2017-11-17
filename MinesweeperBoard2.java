@@ -36,10 +36,15 @@ public class MinesweeperBoard2{
     }
     
     public void addBombs(int bombs) {//throws Exception{
-        // enter number of bombs, bombs placed in random on the board
         for (int i = 0; i < bombs; i++){
-            int randInt = 0 + (int)(Math.random() * (rows*columns) - 1);
-            board[randInt].setValue(-1);
+            boolean createBomb = false;
+            while (!createBomb){
+                int randInt = (int)(Math.random() * (rows*columns));
+                if (board[randInt].getValue() == 0){
+                    board[randInt].setValue(-1);
+                    createBomb = true;
+                }
+            }
         }
         }
     
@@ -71,7 +76,22 @@ public class MinesweeperBoard2{
                 }
                 //RIGHT
                 index = i+1;
-                if(index >= 0 && board[index].getValue() == -1 && index%rows != 0){
+                if(index < boardNum && board[index].getValue() == -1 && index%rows != 0){
+                    num += 1;
+                }
+                //BOTTOM
+                index = i+rows;
+                if (index  < boardNum && board[index].getValue() == -1){
+                    num +=1;
+                }
+                //BOT LEFT
+                index = i+(rows-1);
+                if (index < boardNum && board[index].getValue()== -1 && index%rows != 9){
+                    num +=1;
+                }
+                //BOT RIGHT
+                index = i+(rows+1);
+                if (index < boardNum && board[index].getValue() == -1 && index%rows != 0){
                     num += 1;
                 }
                 

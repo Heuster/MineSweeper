@@ -8,12 +8,12 @@ Steps on How to Create Minesweeper:
 		- As a numerical value, bombs are represented as -1. But when you print
 		it out on the board, it should output as an "X". - DONE
 		- Make sure to add a "checking" method to check that there's the correct
-		number of bombs being created. - 
+		number of bombs being created. - DONE
 	  
-4.) Create the "addNums" method *most difficult method* - 
+4.) Create the "addNums" method *most difficult method* - DONE 
 		- Do your best..
 	
 5.) Make it look pretty, like a game
-		- Put spaces in between the numbers of the board. - 
+		- Put spaces in between the numbers of the board. - DONE
 
 
