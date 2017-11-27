@@ -2,7 +2,7 @@
 /**
  * Write a description of class Cell here.
  * 
- * @author Wiebe 
+ * @author Wiebe/Danny (Current)
  * @version 10.11.16
  */
 import javax.swing.*;
