@@ -11,7 +11,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class MinesweeperBoard2{
-    Cell[] board;
+    Cell[][] board;
     int rows;
     int columns;
     
@@ -19,7 +19,7 @@ public class MinesweeperBoard2{
         //Put the constructor here.
         this.rows = rows;
         this.columns = columns;
-        board = new Cell[rows*columns];
+        board = new Cell[rows][columns];
         
         //These pieces are for the GUI.
         JFrame frame = new JFrame();
@@ -35,22 +35,27 @@ public class MinesweeperBoard2{
         this(10,10);
     }
     
+    //ADD Bombs in random index integerson the board
     public void addBombs(int bombs) {//throws Exception{
         for (int i = 0; i < bombs; i++){
             boolean createBomb = false;
             while (!createBomb){
-                int randInt = (int)(Math.random() * (rows*columns));
-                if (board[randInt].getValue() == 0){
-                    board[randInt].setValue(-1);
+                int randInt = (int)(Math.random() * (rows));
+                int randInt2 = (int)(Math.random() * (columns));
+                if (board[randInt][randInt2].getValue() == 0){
+                    board[randInt][randInt2].setValue(-1);
                     createBomb = true;
                 }
             }
         }
         }
     
+    // Add the numbers to how close you are to a bomb
     public void addNums(){
-        int boardNum = (rows*columns);
-        for (int i = 0; i <boardNum; i++){
+        int rowNum = (rows);
+        int colNum = (columns);
+        for (int i = 0; i <rowNum; i++){
+            for (int j = 0; j < colNum; j++){
             int index = 0;
             int num = 0;
             if (board[i].getValue() != -1){
@@ -97,6 +102,9 @@ public class MinesweeperBoard2{
                 
                 board[i].setValue(num);
             }
+            }
+            
+            
         }
     }
     
@@ -105,13 +113,14 @@ public class MinesweeperBoard2{
      */
     public void printBoard(){
         int index = 0;
+        int index2 = 0;
         System.out.println("    Minesweeper");
         for (int r = 0; r < rows; r++){
             for (int c = 0; c < columns; c++){
-                if (board[index].getValue() == -1){
+                if (board[index][index2].getValue() == -1){
                     System.out.print("X ");
                 } else {
-                    System.out.print(board[index].getValue() + " ");
+                    System.out.print(board[index][index2].getValue() + " ");
                 }
                 index ++;
            }
@@ -122,9 +131,11 @@ public class MinesweeperBoard2{
     
     public JPanel addCells(){
         JPanel panel = new JPanel(new GridLayout(rows,columns));
-        for(int i = 0; i< rows*columns; i++){
-                board[i]= new Cell();
-                panel.add(board[i].getButton());
+        for(int i = 0; i < rows; i++){
+                for (int j = 0;j < columns; j++){
+                    board[i][j] = new Cell();
+                    panel.add(board[i][j].getButton());
+                }
         }
         return panel;
     }
