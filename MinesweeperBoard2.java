@@ -52,60 +52,52 @@ public class MinesweeperBoard2{
     
     // Add the numbers to how close you are to a bomb
     public void addNums(){
-        int boardNum = (rows*columns);
-        int rowNum = (rows);
-        int colNum = (columns);
-        for (int i = 0; i <rowNum; i++){
-            for (int j = 0; j < colNum; j++){
-            int index = 0;
+        for (int r = 0; r < rows; r++){
+            for (int c = 0; c < columns; c++){
+            //int index = 0;
             int num = 0;
-            if (board[i][j].getValue() != -1){
+            if (!board[r][c].isBomb()){
                 //TOP RIGHT
-                //index = i-(rows + 1);
-                if (index >= 0 && board[i][j-1].getValue() == -1){
+                if (r-1 >= 0 && c+1 < columns && board[r-1][c+1].isBomb()){
                     num+= 1;
                 }
-                //TOP
-                //index = i-rows;
-                if (index >= 0 && board[i][j-1].getValue() == -1){
-                    num += 1;
-                }
-                //TOP LEFT
-                //index = i-(rows-1);
-                if (index >= 0 && board[i][j-1].getValue() == -1){
-                    num += 1;
-                }
-                //LEFT
-                //index = i-1;
-               
-                if (index >= 0 && board[i][j-1].getValue() == -1 ){
-                    num += 1;
-                }
-                //RIGHT
-                //index = i+1;
-                if(index < boardNum && board[i][j-1].getValue() == -1 ){
-                    num += 1;
-                }
-                //BOTTOM
-                //index = i+rows;
                 
-                if (index  < boardNum && board[i][j-1].getValue() == -1){
+                //TOP
+                if (r-1 >= 0 && board[r-1][c].isBomb()){
+                    num += 1;
+                }
+                
+                //TOP LEFT
+                if (r-1 >= 0 && c-1 < columns && board[r-1][c-1].isBomb()){
+                    num += 1;
+                }
+                
+                //LEFT
+                if (c-1 >= 0 && board[r][c-1].isBomb()){
+                    num += 1;
+                }
+                
+                //RIGHT                
+                if (c+1 < columns && board[r][c+1].isBomb()){
+                    num += 1;
+                }
+                
+                //BOTTOM                                
+                if (r+1 < rows && board[r+1][c].isBomb()){
                     num +=1;
                 }
-                //BOT LEFT
-                //index = i+(rows-1);
                 
-                if (index < boardNum && board[i][j-1].getValue()== -1 ){
+                //BOT LEFT                                
+                if (r+1 < rows && c-1 >= 0 && board[r+1][c-1].isBomb()){
                     num +=1;
                 }
                 //BOT RIGHT
-                //index = i+(rows+1);
-                
-                if (index < boardNum && board[i][j-1].getValue() == -1 ){
+                            
+                if (r+1 < rows && c+1 < columns && board[r+1][c+1].isBomb()){
                     num += 1;
                 }
                 
-                board[i][j].setValue(num);
+                board[r][c].setValue(num);
             }
             }
             
@@ -119,12 +111,12 @@ public class MinesweeperBoard2{
     public void printBoard(){
         int index = 0;
         System.out.println("    Minesweeper");
-        for (int i = 0; i < rows; i++){
-            for (int j = 0; j < columns; j++){
-                if (board[i][j].getValue() == -1 ){
+        for (int r = 0; r < rows; r++){
+            for (int c = 0; c < columns; c++){
+                if (board[r][c].getValue() == -1 ){
                     System.out.print("X ");
                 } else {
-                    System.out.print(board[i][j].getValue() + " ");
+                    System.out.print(board[r][c].getValue() + " ");
                 }
                 index ++;
                 
