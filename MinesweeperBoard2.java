@@ -54,7 +54,6 @@ public class MinesweeperBoard2{
     public void addNums(){
         for (int r = 0; r < rows; r++){
             for (int c = 0; c < columns; c++){
-            //int index = 0;
             int num = 0;
             if (!board[r][c].isBomb()){
                 //TOP RIGHT
@@ -68,7 +67,7 @@ public class MinesweeperBoard2{
                 }
                 
                 //TOP LEFT
-                if (r-1 >= 0 && c-1 < columns && board[r-1][c-1].isBomb()){
+                if (r-1 >= 0 && c-1 >= 0 && board[r-1][c-1].isBomb()){
                     num += 1;
                 }
                 
@@ -118,8 +117,6 @@ public class MinesweeperBoard2{
                 } else {
                     System.out.print(board[r][c].getValue() + " ");
                 }
-                index ++;
-                
            }
            System.out.println();
         }
@@ -128,10 +125,12 @@ public class MinesweeperBoard2{
     
     public JPanel addCells(){
         JPanel panel = new JPanel(new GridLayout(rows,columns));
-        for(int i = 0; i < rows; i++){
-                for (int j = 0;j < columns; j++){
-                    board[i][j] = new Cell();
-                    panel.add(board[i][j].getButton());
+        for(int r = 0; r < rows; r++){
+                for (int c = 0; c < columns; c++){
+                    board[r][c] = new Cell();
+                    board[r][c].setRow(r);
+                    board[r][c].setColumn(c);
+                    panel.add(board[r][c].getButton());
                 }
         }
         return panel;

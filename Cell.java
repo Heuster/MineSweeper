@@ -13,7 +13,8 @@ import java.awt.event.ActionListener;
 public class Cell implements ActionListener{
     //Variables you need to work with
     private int value;
-   
+    private int row;
+    private int column;
     //Variables you don't need to worry about or care about.
     private JButton button;
     /**
@@ -55,6 +56,15 @@ public class Cell implements ActionListener{
         button.setEnabled(false);
         displayValue();
     }
+    
+    public void setRow(int num){
+        row = num;
+    }
+    
+    public void setColumn(int num){
+        column = num;
+    }
+    
     public void displayValue(){
         if(this.isBomb()){
             button.setText("\u2600");
@@ -63,9 +73,11 @@ public class Cell implements ActionListener{
             button.setText(String.valueOf(value));
         }
     }
+    
     public JButton getButton() {
         return button;
     }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         checkCell();
