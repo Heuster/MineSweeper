@@ -2,34 +2,19 @@
 dependency1.from=MinesweeperBoard2
 dependency1.to=Cell
 dependency1.type=UsesDependency
-<<<<<<< HEAD
-editor.fx.0.height=0
-editor.fx.0.width=0
-editor.fx.0.x=0
-editor.fx.0.y=0
-objectbench.height=155
-objectbench.width=760
-package.divider.horizontal=0.6
-package.divider.vertical=0.676
-package.editor.height=331
-package.editor.width=670
-package.editor.x=631
-package.editor.y=154
-=======
 editor.fx.0.height=739
 editor.fx.0.width=816
-editor.fx.0.x=275
-editor.fx.0.y=-4
-objectbench.height=66
+editor.fx.0.x=552
+editor.fx.0.y=100
+objectbench.height=200
 objectbench.width=760
 package.divider.horizontal=0.6
-package.divider.vertical=0.854
-package.editor.height=420
+package.divider.vertical=0.6724683544303798
+package.editor.height=418
 package.editor.width=670
-package.editor.x=544
-package.editor.y=29
->>>>>>> 659e5f178daa1e4dda35d583507eb50675700aa9
-package.frame.height=600
+package.editor.x=831
+package.editor.y=127
+package.frame.height=732
 package.frame.width=800
 package.numDependencies=1
 package.numTargets=2
@@ -54,10 +39,6 @@ target2.name=MinesweeperBoard2
 target2.naviview.expanded=true
 target2.showInterface=false
 target2.type=ClassTarget
-<<<<<<< HEAD
-=======
-target2.typeParameters=
->>>>>>> 659e5f178daa1e4dda35d583507eb50675700aa9
 target2.width=150
 target2.x=240
 target2.y=30
